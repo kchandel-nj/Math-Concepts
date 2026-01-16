@@ -18,10 +18,7 @@ class SieveOfEratosthenes:
         """
 
         self.limit = limit
-        self.numbers = list()
-
-        for num in range(2, limit + 1):
-            self.numbers.append(num)
+        self.numbers = list(range(2, limit + 1))
 
     def sieve(self) -> list:
         """
@@ -32,11 +29,10 @@ class SieveOfEratosthenes:
         :rtype: list
         """
 
-        primes = list()
-        for num in range(2, len(self.numbers)):
-            primes.append(num)
-            for candidate in range(num, len(self.numbers)):
-                if candidate % num == 0:
-                    self.numbers.remove(candidate)
+        primes = self.numbers.copy()
+        for num in primes[:]:
+            for candidate in range(num * 2, self.limit + 1, num):
+                if candidate in primes:
+                    primes.remove(candidate)
 
         return primes
