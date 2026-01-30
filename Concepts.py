@@ -95,6 +95,20 @@ class Concepts:
                     newNum = int(num / p)
                     return self._factors(newNum, self.sieve(newNum), factorization)
                 
-    def lcm(self, num1: int, num2: int):
+    def lcm(self, num1: int, num2: int) -> int:
+        """
+        Docstring for lcm
+
+        Calculates the Least Common Multiple of two numbers.
+        
+        :param self: The object
+        :param num1: The first number
+        :type num1: int
+        :param num2: The second number
+        :type num2: int
+        :return: The LCM of the numbers
+        :rtype: int
+        """
+        
         # LCM = |num1 * num2| / GCD(num1, num2)
         return int(abs(num1 * num2) / self.gcd(num1, num2))
