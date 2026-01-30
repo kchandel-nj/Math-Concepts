@@ -109,6 +109,51 @@ class Concepts:
         :return: The LCM of the numbers
         :rtype: int
         """
-        
+
         # LCM = |num1 * num2| / GCD(num1, num2)
         return int(abs(num1 * num2) / self.gcd(num1, num2))
+    
+    def root(self, num: float, root: int) -> float:
+        """
+        Docstring for root
+
+        Calculates the nth root of a number, where n is supplied by the user (root).
+        
+        :param self: The object
+        :param num: The number
+        :type num: float
+        :param root: The root to calculate
+        :type root: int
+        :return: The rootth root of the number
+        :rtype: float
+        """
+
+        return self._root(num, root, 0, num)
+    
+    def _root(self, num: float, root: int, low: float, high: float) -> float:
+        """
+        Docstring for _root
+
+        Uses binary search to calculate the nth root of a number, where n is supplied by the user (root).
+        
+        :param self: The object
+        :param num: The number
+        :type num: float
+        :param root: The root to calculate
+        :type root: int
+        :param low: The low end of the range
+        :type low: float
+        :param high: The high end of the range
+        :type high: float
+        :return: The rootth root of the number
+        :rtype: float
+        """
+        
+        mid = (low + high) / 2
+        midToRoot = mid ** root
+        if abs(midToRoot - num) < 1e-6: # Float math is not fully precise
+            return mid
+        elif midToRoot < num:
+            return self._root(num, root, mid, high)
+        else:
+            return self._root(num, root, low, mid)

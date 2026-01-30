@@ -25,3 +25,6 @@ Created and tested a method to factorize any number and return the prime factors
 Version 4.0:
 Fixed critical bugs in the GCD method that would result in DivideByZero errors.
 Created and tested a method to calculate the Least Common Multiple of any two numbers.
+
+Version 5.0:
+Created a method to calculate any root of any number using Binary Search.
