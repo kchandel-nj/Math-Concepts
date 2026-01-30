@@ -50,14 +50,11 @@ class Concepts:
 
         # num1 = num2 * (num1 / num2) + num1 % num2
         # num1 = num2 * _integerDivide(num1, num2) + _remainder(num1, num2)
-        if num1 % num2 == 0:
-            return num2
-        elif num1 % num2 == 1:
-            return 1
-        else:
-            return self.gcd(num2, num1 % num2)
+        if num2 == 0:
+            return abs(num1)
+        return self.gcd(num2, num1 % num2)
         
-    def factorize(self, num: int):# -> list[int]:
+    def factorize(self, num: int):
         """
         Docstring for factorize
 
@@ -71,7 +68,23 @@ class Concepts:
 
         return self._factors(num, self.sieve(num), [])
         
-    def _factors(self, num: int, primesBelow: list[int], factorization: list[int]):# -> list[int]:
+    def _factors(self, num: int, primesBelow: list[int], factorization: list[int]):
+        """
+        Docstring for _factors
+
+        Calculate the prime factorization of a number recursively.
+        
+        :param self: The object
+        :param num: The number
+        :type num: int
+        :param primesBelow: The prime numbers less than or equal to the number
+        :type primesBelow: list[int]
+        :param factorization: The already calculated factors
+        :type factorization: list[int]
+        :return: The list of prime factors
+        :rtype: list[int]
+        """
+
         if primesBelow[-1] == num:
             factorization.append(num)
             return factorization
@@ -81,3 +94,7 @@ class Concepts:
                     factorization.append(p)
                     newNum = int(num / p)
                     return self._factors(newNum, self.sieve(newNum), factorization)
+                
+    def lcm(self, num1: int, num2: int):
+        # LCM = |num1 * num2| / GCD(num1, num2)
+        return int(abs(num1 * num2) / self.gcd(num1, num2))

@@ -43,3 +43,13 @@ print(concepts.factorize(3))
 
 print("Factorize 36: 2, 2, 3, 3")
 print(concepts.factorize(36))
+
+# LCM testing
+print("LCM 4, 2: 4")
+print(concepts.lcm(4, 2))
+
+print("LCM 13, 6: 78")
+print(concepts.lcm(13, 6))
+
+print("LCM 26, 4: 52")
+print(concepts.lcm(26,4))
