@@ -1,21 +1,38 @@
-class CommonNumbers:
-    """
-    Docstring for CommonNumbers
+class Concepts:
 
-    This class will provide functionality for finding numbers such as the
-    Greatest Common Denominator or Least Common Multiple.
+    """
+    Docstring for Concepts
+
+    Applies various mathematical concepts learned in classes through Python and various programming techniques.
     """
 
     def __init__(self):
         """
         Docstring for __init__
 
-        Prepares an object.
-
+        Initializes the object.
+        
         :param self: The object
         """
         pass
 
+    def sieve(self, limit: int) -> list:
+        """
+        Docstring for sieve
+        
+        :param self: The object
+        :return: A list of prime numbers up to the limit
+        :rtype: list
+        """
+
+        primes = list(range(2, limit + 1))
+        for num in primes[:]:
+            for candidate in range(num * 2, limit + 1, num):
+                if candidate in primes:
+                    primes.remove(candidate)
+
+        return primes
+    
     def gcd(self, num1: int, num2: int):
         """
         Docstring for gcd

@@ -15,3 +15,6 @@ Implemented the first few tests for finding the GCD.
 
 Version 2.1:
 Fixed bugs with the Greatest Common Denominator program.
+
+Version 2.1.5:
+Merged all created concepts into one Concepts file.
