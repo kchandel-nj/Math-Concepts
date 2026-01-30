@@ -157,3 +157,23 @@ class Concepts:
             return self._root(num, root, mid, high)
         else:
             return self._root(num, root, low, mid)
+        
+    def factorial(self, num: int) -> int:
+        """
+        Docstring for factorial
+
+        Recursively calculates the factorial of any non-negative integer.
+        
+        :param self: The object
+        :param num: The number
+        :type num: int
+        :return: The factorial of the number
+        :rtype: int
+        """
+
+        if num < 0:
+            raise Exception("Cannot calculate factorial of a negative number.")
+        if num == 0:
+            return 1
+        else:
+            return num * self.factorial(num - 1)

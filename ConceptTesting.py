@@ -70,3 +70,14 @@ start = time.perf_counter()
 print(99 ** (1/2))
 end = time.perf_counter()
 print(f"Took {end - start} seconds to calculate using Python's built in method.")
+
+# Factorial testing
+print("0! = 1, 1! = 1")
+print(concepts.factorial(0))
+print(concepts.factorial(1))
+
+print("5! = 120")
+print(concepts.factorial(5))
+
+print("Negative factorial throws error")
+# print(concepts.factorial(-1))
