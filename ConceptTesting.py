@@ -29,3 +29,6 @@ print(commonFinder.gcd(20, 10))
 
 print("Finding gcd of 450, 95 = 5:")
 print(commonFinder.gcd(450, 95))
+
+print("Finding gcd of 14, 3 = 1:")
+print(commonFinder.gcd(14, 3))

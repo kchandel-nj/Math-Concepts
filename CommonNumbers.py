@@ -31,14 +31,9 @@ class CommonNumbers:
 
         # num1 = num2 * (num1 / num2) + num1 % num2
         # num1 = num2 * _integerDivide(num1, num2) + _remainder(num1, num2)
-        if self._remainder(num1, num2) == 0:
+        if num1 % num2 == 0:
             return num2
+        elif num1 % num2 == 1:
+            return 1
         else:
-            return self.gcd(self._integerDivide(num1, num2), self._remainder(num1, num2))
-    
-    def _remainder(self, num1: int, num2: int):
-        return num1 % num2
-    
-    def _integerDivide(self, num1: int, num2: int):
-        return int(num1 / num2)
-        
+            return self.gcd(num2, num1 % num2)

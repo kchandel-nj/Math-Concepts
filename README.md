@@ -12,3 +12,6 @@ Imported the time library to measure execution time of functions.
 Version 2.0:
 Created the first draft of a Greatest Common Denominator finding program.
 Implemented the first few tests for finding the GCD.
+
+Version 2.1:
+Fixed bugs with the Greatest Common Denominator program.
