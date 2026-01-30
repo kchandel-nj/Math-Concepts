@@ -33,3 +33,13 @@ print(concepts.gcd(450, 95))
 
 print("Finding gcd of 14, 3 = 1:")
 print(concepts.gcd(14, 3))
+
+# Prime factorization testing
+print("Factorize 4: 2, 2")
+print(concepts.factorize(4))
+
+print("Factorize 3: 3")
+print(concepts.factorize(3))
+
+print("Factorize 36: 2, 2, 3, 3")
+print(concepts.factorize(36))

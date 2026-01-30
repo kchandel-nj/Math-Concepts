@@ -18,3 +18,6 @@ Fixed bugs with the Greatest Common Denominator program.
 
 Version 2.1.5:
 Merged all created concepts into one Concepts file.
+
+Version 3.0:
+Created a method to factorize any number and return the prime factors.
