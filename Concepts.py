@@ -11,10 +11,15 @@ class Concepts:
         Docstring for __init__
 
         Initializes the object.
+        Creates lists for faster calculation of various recursive algorithms.
         
         :param self: The object
         """
-        pass
+
+        self.calculated_factorials = []
+        self.calculated_primes = []
+        self.calculated_GCDs = [[]]
+        self.calculated_GCDs.insert(0, [0])
 
     def sieve(self, limit: int) -> list:
         """
@@ -26,7 +31,7 @@ class Concepts:
         """
 
         primes = list(range(2, limit + 1))
-        for num in primes[:]:
+        for num in primes[:]: # Iterates over a shallow copy
             for candidate in range(num * 2, limit + 1, num):
                 if candidate in primes:
                     primes.remove(candidate)
@@ -50,7 +55,18 @@ class Concepts:
 
         # num1 = num2 * (num1 / num2) + num1 % num2
         # num1 = num2 * _integerDivide(num1, num2) + _remainder(num1, num2)
+        if num1 == 0 and num2 == 0:
+            return self.calculated_GCDs[num1][num2]
         if num2 == 0:
+            try:
+                self.calculated_GCDs[num1][num2] = abs(num1)
+            except IndexError:
+                try:
+                    self.calculated_GCDs[num1].insert(num2, abs(num1))
+                except IndexError:
+                    self.calculated_GCDs.insert(num1, [])
+                    self.calculated_GCDs[num1].insert(num2, abs(num1))
+            
             return abs(num1)
         return self.gcd(num2, num1 % num2)
         
@@ -172,8 +188,14 @@ class Concepts:
         """
 
         if num < 0:
-            raise Exception("Cannot calculate factorial of a negative number.")
+            raise ValueError("Cannot calculate factorial of a negative number.")
         if num == 0:
+            if len(self.calculated_factorials) == 0:
+                self.calculated_factorials.insert(num, 1)
             return 1
         else:
-            return num * self.factorial(num - 1)
+            if num >= len(self.calculated_factorials):
+                self.calculated_factorials.insert(num, num * self.factorial(num - 1))
+                return self.calculated_factorials[num]
+            else:
+                return self.calculated_factorials[num]

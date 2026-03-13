@@ -31,3 +31,7 @@ Created a method to calculate any root of any number using Binary Search.
 
 Version 6.0:
 Created a method to recursively calculate the factorial of any non-negative integer.
+
+Version 6.1:
+Added memoization using arrays to the factorial method to save time.
+Began implementation of matrix memoization to the GCD method to save time.

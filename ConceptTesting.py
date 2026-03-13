@@ -25,6 +25,9 @@ end = time.perf_counter()
 print(f"Executed in {end - start} seconds.")
 
 # GCD testing
+print("Finding gcd of 5, 0 = 5:")
+print(concepts.gcd(5, 0))
+
 print("Finding gcd of 20, 10 = 10:")
 print(concepts.gcd(20, 10))
 
@@ -80,4 +83,7 @@ print("5! = 120")
 print(concepts.factorial(5))
 
 print("Negative factorial throws error")
-# print(concepts.factorial(-1))
+try:
+    print(concepts.factorial(-1))
+except:
+    print("Exception thrown.")
