@@ -17,7 +17,6 @@ class Concepts:
         """
 
         self.calculated_factorials = []
-        self.calculated_primes = []
         self.calculated_GCDs = [[]]
         self.calculated_GCDs.insert(0, [0])
 
@@ -58,15 +57,6 @@ class Concepts:
         if num1 == 0 and num2 == 0:
             return self.calculated_GCDs[num1][num2]
         if num2 == 0:
-            try:
-                self.calculated_GCDs[num1][num2] = abs(num1)
-            except IndexError:
-                try:
-                    self.calculated_GCDs[num1].insert(num2, abs(num1))
-                except IndexError:
-                    self.calculated_GCDs.insert(num1, [])
-                    self.calculated_GCDs[num1].insert(num2, abs(num1))
-            
             return abs(num1)
         return self.gcd(num2, num1 % num2)
         
