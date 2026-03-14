@@ -11,14 +11,15 @@ class Concepts:
         Docstring for __init__
 
         Initializes the object.
-        Creates lists for faster calculation of various recursive algorithms.
+        Creates data structures for faster calculation of various recursive algorithms.
         
         :param self: The object
         """
 
         self.calculated_factorials = []
-        self.calculated_GCDs = [[]]
-        self.calculated_GCDs.insert(0, [0])
+        self.calculated_GCDs = {
+            0 : {0 : 0}
+        }
 
     def sieve(self, limit: int) -> list:
         """
@@ -56,9 +57,18 @@ class Concepts:
         # num1 = num2 * _integerDivide(num1, num2) + _remainder(num1, num2)
         if num1 == 0 and num2 == 0:
             return self.calculated_GCDs[num1][num2]
-        if num2 == 0:
+        if num2 == 0 or num2 == 1:
+            if self.calculated_GCDs.get(num1) == None:
+                self.calculated_GCDs[num1] = {num2 : abs(num1)}
             return abs(num1)
-        return self.gcd(num2, num1 % num2)
+        if num1 == 0 or num1 == 1:
+            if self.calculated_GCDs.get(num1) == None:
+                self.calculated_GCDs[num1] = {num2 : abs(num2)}
+            else:
+                self.calculated_GCDs[num1][num2] = abs(num2)
+            return abs(num2)
+        else:
+            return self.gcd(num2, num1 % num2)
         
     def factorize(self, num: int):
         """

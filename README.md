@@ -34,4 +34,9 @@ Created a method to recursively calculate the factorial of any non-negative inte
 
 Version 6.1:
 Added memoization using arrays to the factorial method to save time.
-Began implementation of matrix memoization to the GCD method to save time.
+Began implementation of matrix (2D list) memoization to the GCD method to save time.
+
+Version 6.2:
+Changed memoization strategy of GCD from a matrix to a nested dict.
+Put all tests in their own file. ConceptTesting.py now imports the test file to run it.
+Tests can be not run by commenting out the import statement.
