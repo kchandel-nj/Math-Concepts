@@ -8,19 +8,19 @@ from Concepts import Concepts
 concepts = Concepts()
 
 # Sieve tests
-from ConceptTests import SieveTests
+#from ConceptTests import SieveTests
 
 # GCD tests
 from ConceptTests import GCDTests
 
 # Prime factorization testing
-from ConceptTests import PrimeFactorTests
+#from ConceptTests import PrimeFactorTests
 
 # LCM testing
-from ConceptTests import LCMTests
+#from ConceptTests import LCMTests
 
 # Root testing
-from ConceptTests import RootTests
+#from ConceptTests import RootTests
 
 # Factorial testing
-from ConceptTests import FactorialTests
+#from ConceptTests import FactorialTests

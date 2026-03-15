@@ -40,3 +40,8 @@ Version 6.2:
 Changed memoization strategy of GCD from a matrix to a nested dict.
 Put all tests in their own file. ConceptTesting.py now imports the test file to run it.
 Tests can be not run by commenting out the import statement.
+
+Version 6.3:
+Memoized GCD should now work without error.
+Realized I had some minor mathematical error in the print statements for the GCD tests.
+Added a few tests to GCD tests.
