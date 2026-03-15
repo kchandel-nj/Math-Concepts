@@ -39,9 +39,13 @@ Began implementation of matrix (2D list) memoization to the GCD method to save t
 Version 6.2:
 Changed memoization strategy of GCD from a matrix to a nested dict.
 Put all tests in their own file. ConceptTesting.py now imports the test file to run it.
-Tests can be not run by commenting out the import statement.
+    Tests can be not run by commenting out the import statement.
 
 Version 6.3:
 Memoized GCD should now work without error.
 Realized I had some minor mathematical error in the print statements for the GCD tests.
 Added a few tests to GCD tests.
+
+Version 6.4:
+Began optimization of Sieve of Eratosthenes.
+    Original method operated in O(n^2), algorithm usually operates in O(n log n).

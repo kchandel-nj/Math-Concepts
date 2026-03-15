@@ -8,10 +8,10 @@ from Concepts import Concepts
 concepts = Concepts()
 
 # Sieve tests
-#from ConceptTests import SieveTests
+from ConceptTests import SieveTests
 
 # GCD tests
-from ConceptTests import GCDTests
+#from ConceptTests import GCDTests
 
 # Prime factorization testing
 #from ConceptTests import PrimeFactorTests

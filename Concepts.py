@@ -32,10 +32,12 @@ class Concepts:
         """
 
         primes = list(range(2, limit + 1))
-        for num in primes[:]: # Iterates over a shallow copy
-            for candidate in range(num * 2, limit + 1, num):
-                if candidate in primes:
-                    primes.remove(candidate)
+        for p in primes:
+            for num in range(p**2, limit + 1, p):
+                try:
+                    primes.remove(num)
+                except:
+                    pass
 
         return primes
     
