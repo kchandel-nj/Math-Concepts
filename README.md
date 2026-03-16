@@ -49,3 +49,7 @@ Added a few tests to GCD tests.
 Version 6.4:
 Began optimization of Sieve of Eratosthenes.
     Original method operated in O(n^2), algorithm usually operates in O(n log n).
+
+Version 6.5:
+Fixed Sieve of Eratosthenes, algorithm should now operate in roughly O(n log n).
+Began recursive memoized implementation of Fibonacci calculation.

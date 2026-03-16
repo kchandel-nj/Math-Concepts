@@ -21,6 +21,7 @@ class Concepts:
             0: {0: 0}, # (0, 0) = 0
             1: {0: 1}
         }
+        self.calculated_fibonaccis = [0, 1, 1]
 
     def sieve(self, limit: int) -> list:
         """
@@ -30,16 +31,21 @@ class Concepts:
         :return: A list of prime numbers up to the limit
         :rtype: list
         """
-
+        prime_bits = [True] * (limit + 1)
+        prime_bits[0] = prime_bits[1] = False
         primes = list(range(2, limit + 1))
         for p in primes:
-            for num in range(p**2, limit + 1, p):
-                try:
-                    primes.remove(num)
-                except:
-                    pass
+            if prime_bits[p]:
+                for num in range(p ** 2, limit + 1, p):
+                    prime_bits[num] = False
 
-        return primes
+                
+        returned_primes = []
+        for p in primes:
+            if prime_bits[p]:
+                returned_primes.append(p)
+        return returned_primes
+
     
     def gcd(self, num1: int, num2: int) -> int:
         """
@@ -215,3 +221,28 @@ class Concepts:
                 return self.calculated_factorials[num]
             else:
                 return self.calculated_factorials[num]
+
+    def fibonacci(self, num: int) -> list[int]:
+        """
+        Docstring for fibonacci
+
+        Recursively calculates up to the numth fibonacci number.
+
+        :param self: The object
+        :param num: The number
+        :type num: int
+        :return: The list of fibonaccis up to num
+        :rtype: list[int]
+        """
+
+        if num <= 2:
+            return self.calculated_fibonaccis
+        else:
+            try:
+                self.calculated_fibonaccis[num]
+                return self.calculated_fibonaccis
+            except:
+                
+                pass
+
+        return [0]
