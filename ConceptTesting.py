@@ -8,7 +8,7 @@ from Concepts import Concepts
 concepts = Concepts()
 
 # Sieve tests
-from ConceptTests import SieveTests
+#from ConceptTests import SieveTests
 
 # GCD tests
 #from ConceptTests import GCDTests
@@ -24,3 +24,6 @@ from ConceptTests import SieveTests
 
 # Factorial testing
 #from ConceptTests import FactorialTests
+
+# Fibonacci testing
+from ConceptTests import FibonacciTests

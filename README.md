@@ -53,3 +53,6 @@ Began optimization of Sieve of Eratosthenes.
 Version 6.5:
 Fixed Sieve of Eratosthenes, algorithm should now operate in roughly O(n log n).
 Began recursive memoized implementation of Fibonacci calculation.
+
+Version 7.0:
+Finished a method to recursively calculate the nth Fibonacci number using memoization for speed.

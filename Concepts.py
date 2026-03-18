@@ -21,7 +21,11 @@ class Concepts:
             0: {0: 0}, # (0, 0) = 0
             1: {0: 1}
         }
-        self.calculated_fibonaccis = [0, 1, 1]
+        self.calculated_fibonaccis = {
+            0: 0,
+            1: 1,
+            2: 1
+        }
 
     def sieve(self, limit: int) -> list:
         """
@@ -222,7 +226,7 @@ class Concepts:
             else:
                 return self.calculated_factorials[num]
 
-    def fibonacci(self, num: int) -> list[int]:
+    def fibonacci(self, num: int) -> int:
         """
         Docstring for fibonacci
 
@@ -231,18 +235,14 @@ class Concepts:
         :param self: The object
         :param num: The number
         :type num: int
-        :return: The list of fibonaccis up to num
-        :rtype: list[int]
+        :return: The numth fibonacci
+        :rtype: int
         """
 
-        if num <= 2:
-            return self.calculated_fibonaccis
-        else:
-            try:
-                self.calculated_fibonaccis[num]
-                return self.calculated_fibonaccis
-            except:
-                
-                pass
-
-        return [0]
+        
+        try:
+            self.calculated_fibonaccis[num]
+            return self.calculated_fibonaccis[num]
+        except:
+            self.calculated_fibonaccis[num] = self.fibonacci(num - 1) + self.fibonacci(num - 2)
+            return self.calculated_fibonaccis[num]
