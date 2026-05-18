@@ -1,3 +1,7 @@
+# Libraries
+import sqlite3
+import os
+
 class Concepts:
 
     """
@@ -27,6 +31,33 @@ class Concepts:
             2: 1
         }
 
+        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+        DB_PATH = os.path.join(BASE_DIR, "collatz.db")
+
+        self.conn = sqlite3.connect(DB_PATH)
+        self.cursor = self.conn.cursor()
+
+        self.cursor.execute("""
+            CREATE TABLE IF NOT EXISTS collatz (
+                starting_number INTEGER PRIMARY KEY,
+                fits_conjecture  INTEGER NOT NULL  -- 1 = True, 0 = False
+            )
+        """)
+        self.conn.commit()
+        self._initDB()
+
+    def _initDB(self):
+        self._save_result(1, True)
+        self._save_result(2, True)
+        self._save_result(4, True)
+
+    def _save_result(self, starting_number, fits_conjecture):
+        self.cursor.execute("""
+            INSERT OR IGNORE INTO collatz (starting_number, fits_conjecture)
+            VALUES (?, ?)
+        """, (starting_number, fits_conjecture))
+        self.conn.commit()
+
     def sieve(self, limit: int) -> list:
         """
         Docstring for sieve
@@ -50,7 +81,6 @@ class Concepts:
                 returned_primes.append(p)
         return returned_primes
 
-    
     def gcd(self, num1: int, num2: int) -> int:
         """
         Docstring for gcd
@@ -239,10 +269,23 @@ class Concepts:
         :rtype: int
         """
 
-        
         try:
             self.calculated_fibonaccis[num]
             return self.calculated_fibonaccis[num]
         except:
             self.calculated_fibonaccis[num] = self.fibonacci(num - 1) + self.fibonacci(num - 2)
             return self.calculated_fibonaccis[num]
+    
+    def collatz(self, startingNum: int):
+        """
+        Docstring for collatz
+
+        Calculates and stores numbers that fit into the Collatz Conjecture (3x+1).
+
+        :param self: The object
+        :param startingNum: The number
+        :type startingNum: int
+        :return: 
+        :rtype: 
+        """
+

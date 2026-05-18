@@ -26,4 +26,7 @@ concepts = Concepts()
 #from ConceptTests import FactorialTests
 
 # Fibonacci testing
-from ConceptTests import FibonacciTests
+#from ConceptTests import FibonacciTests
+
+# Collatz testing
+from ConceptTests import CollatzTests

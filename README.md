@@ -56,3 +56,7 @@ Began recursive memoized implementation of Fibonacci calculation.
 
 Version 7.0:
 Finished a method to recursively calculate the nth Fibonacci number using memoization for speed.
+
+Version 8.0:
+Started implementation of a script to calculate numbers fitting the Collatz Conjecture.
+    Stores numbers in a database based off if they fit or not.
