@@ -276,7 +276,7 @@ class Concepts:
             self.calculated_fibonaccis[num] = self.fibonacci(num - 1) + self.fibonacci(num - 2)
             return self.calculated_fibonaccis[num]
     
-    def collatz(self, startingNum: int):
+    def collatz(self, startingNum: int) -> bool:
         """
         Docstring for collatz
 
@@ -285,7 +285,23 @@ class Concepts:
         :param self: The object
         :param startingNum: The number
         :type startingNum: int
-        :return: 
-        :rtype: 
+        :return: Whether or not the startingNum fits the Collatz Conjecture
+        :rtype: bool
         """
+        
+        if startingNum <= 0:
+            raise ValueError("Collatz conjecture is strictly defined for positive numbers." 
+                             + str(startingNum) + " is not positive.")
+        if startingNum == 1 or startingNum == 2 or startingNum == 4:
+            return True
+        else:
+            if self._even(startingNum):
+                return self.collatz(int(startingNum / 2))
+            else:
+                return self.collatz(startingNum * 3 + 1)
 
+    def _even(self, num: int) -> int:
+        if num % 2 == 0:
+            return True
+        else:
+            return False

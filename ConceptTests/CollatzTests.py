@@ -6,3 +6,8 @@ from Concepts import Concepts
 concepts = Concepts()
 
 # Collatz Testing
+print("Does 4 fit?")
+print(concepts.collatz(4))
+
+print("Does 5 fit?")
+print(concepts.collatz(5))

@@ -59,4 +59,7 @@ Finished a method to recursively calculate the nth Fibonacci number using memoiz
 
 Version 8.0:
 Started implementation of a script to calculate numbers fitting the Collatz Conjecture.
-    Stores numbers in a database based off if they fit or not.
+    Will store numbers in a database based off if they fit or not.
+
+Version 8.1:
+Collatz conjecture calculation now works, but no numbers are stored to a database.
